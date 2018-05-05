@@ -1,0 +1,39 @@
+{
+  "name": "minerbeans",
+  "version": "0.0.1",
+  "description": "Command-line tools for crypto mining accounting.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.1.0 ",
+    "npm": ">=5.1.0"
+  },
+  "scripts": {
+    "profitloss": "node index.js",
+    "test": "./test.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nottoseethesun/minerbeans.git"
+  },
+  "keywords": [
+    "crypto",
+    "miner",
+    "mining",
+    "cost",
+    "accounting",
+    "profit",
+    "loss"
+  ],
+  "author": "Chris M. Balz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nottoseethesun/minerbeans/issues"
+  },
+  "homepage": "https://github.com/nottoseethesun/minerbeans#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "colors": "^1.2.4",
+    "optimist": "^0.6.1",
+    "prompt": "^1.0.0"
+  }
+}
