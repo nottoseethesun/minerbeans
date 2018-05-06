@@ -1,6 +1,6 @@
 #!/bin/bash
 
-output=`node index.js --cryptoName Monero --nonCryptoCurrency '$USD' --costPerKwh 0.18 --wattsConsumption 30 --cryptoPayout 0.0005818376 --cryptoPriceUSD 280 --totalHrs 24`
+output=`node ./src/index.js --cryptoName Monero --nonCryptoCurrency '$USD' --costPerKwh 0.18 --wattsConsumption 30 --cryptoPayout 0.0005818376 --cryptoPriceUSD 280 --totalHrs 24`
 actual=$output # $(echo "$output" | tr -d '\r\n')
 
 # Must remove single quotes from actual output.
