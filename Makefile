@@ -7,5 +7,11 @@ run:
 test:
 	npm test
 
+lint:
+	npm run lint
+
 prettier:
-	./node_modules/.bin/prettier index.js --write
+	npm run prettier
+
+changelog:
+	npm run changelog
