@@ -1,3 +1,5 @@
+![Image of Build Status](https://travis-ci.org/nottoseethesun/minerbeans.svg?branch=master)
+
 # minerbeans
 Command-line tools for crypto mining accounting.
 
