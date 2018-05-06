@@ -79,7 +79,7 @@ function getDataSchema(cryptoName, nonCryptoCurrency) {
       },
       cryptoPayout: {
         pattern: numPattern,
-        description: `Crypto payout per 24 hours, in ${cryptoName} units: `,
+        description: `Crypto payout, in ${cryptoName} units: `,
         default: cryptoPayout,
         required: true
       },
