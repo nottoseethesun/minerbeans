@@ -67,7 +67,7 @@ function getDataSchema(cryptoName, nonCryptoCurrency) {
     properties: {
       costPerKwh: {
         pattern: numPattern,
-        description: 'Cost per kWh (same voltage as consumption), in ${nonCryptoCurrency}: ',
+        description: `Cost per kWh (same voltage as consumption), in ${nonCryptoCurrency}: `,
         default: costPerKwh,
         required: true
       },
