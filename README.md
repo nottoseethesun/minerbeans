@@ -20,7 +20,7 @@ npm test
 - Ideas
   - Present a network-fetched list of cryptos for auto-complete.
   - Fetch price.
-  - Based on a `.minerbeansrc` config file similar to that used in [xmr-stak](https://github.com/fireice-uk/xmr-stak), fetch payout and/or etch payout stats from mining pool
+  - Based on a `.minerbeansrc` config file similar to that used in [xmr-stak](https://github.com/fireice-uk/xmr-stak), fetch payout and/or fetch payout stats from mining pool.
   - Use a node-based cron facility to toggle a specified local mining program if the payout gets too low.
 
 # Contributing
