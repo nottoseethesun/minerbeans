@@ -24,7 +24,9 @@ prompt.get(getUISchema(), function (err, uiResult) {
   prompt.get(ds, function (err, dataResult) {
     const {nonCryptoCurrency, cryptoName} = uiResult;
     const operatingProfitLoss = getOperatingProfitLoss(dataResult);
-    console.info(colors.magenta(`Operating profit/loss for mining ${cryptoName} is ${nonCryptoCurrency} ${operatingProfitLoss} per ${dataResult.totalHrs} hours.`));
+    const iconMsg = getIconMsg(operatingProfitLoss);
+    const msg = `Operating profit/loss for mining ${cryptoName} is ${nonCryptoCurrency} ${operatingProfitLoss} per ${dataResult.totalHrs} hours.`;
+    console.info(iconMsg + ' ' + colors.magenta(msg) + ' ' + iconMsg);
   });
 });
 
@@ -32,11 +34,19 @@ prompt.get(getUISchema(), function (err, uiResult) {
 
 function getOperatingProfitLoss(dataResult) {
   const {costPerKwh, wattsConsumption, cryptoPayout, cryptoPriceUSD, totalHrs} = dataResult;
-  const powerCostPerHour = (wattsConsumption / KILO) * costPerKwh
+  const powerCostPerHour = (wattsConsumption / KILO) * costPerKwh;
   const cryptoValue = cryptoPayout * cryptoPriceUSD;
   const totalPowerCost = powerCostPerHour * totalHrs;
-
   return (cryptoValue - totalPowerCost);
+}
+
+function getIconMsg(operatingProfitLoss) {
+  const profitable = operatingProfitLoss > 0;
+  const icon = profitable ? '🎉' : '☂';
+  const iconText = `  ${icon}   `;
+  const iconColor = profitable ? 'black' : 'red';
+  const iconBackgroundColor = profitable ? 'bgGreen' : 'bgWhite';
+  return colors[iconBackgroundColor][iconColor].bold(iconText);
 }
 
 function getUISchema() {
@@ -45,13 +55,13 @@ function getUISchema() {
     properties: {
       cryptoName: {
         type: 'string',
-        description: 'Crypto currency name: ',
+        description: 'Crypto currency name',
         default: cryptoName,
         required: true
       },
       nonCryptoCurrency: {
         type: 'string',
-        description: 'Non-crypto currency name: ',
+        description: 'Non-crypto currency name',
         default: nonCryptoCurrency,
         required: true
       }
@@ -67,31 +77,31 @@ function getDataSchema(cryptoName, nonCryptoCurrency) {
     properties: {
       costPerKwh: {
         pattern: numPattern,
-        description: `Cost per kWh (same voltage as consumption), in ${nonCryptoCurrency}: `,
+        description: `Cost per kWh (same voltage as consumption), in ${nonCryptoCurrency}`,
         default: costPerKwh,
         required: true
       },
       wattsConsumption: {
         pattern: numPattern,
-        description: 'Watts consumption per hour (same voltage as cost per kWh): ',
+        description: 'Watts consumption per hour (same voltage as cost per kWh)',
         default: wattsConsumption,
         required: true
       },
       cryptoPayout: {
         pattern: numPattern,
-        description: `Crypto payout, in ${cryptoName} units: `,
+        description: `Total crypto payout received, in ${cryptoName} units`,
         default: cryptoPayout,
         required: true
       },
       cryptoPriceUSD: {
         pattern: numPattern,
-        description: `Crypto price per unit in ${nonCryptoCurrency}: `,
+        description: `${cryptoName} price per unit in ${nonCryptoCurrency}`,
         default: cryptoPriceUSD,
         required: true
       },
       totalHrs: {
         pattern: numPattern,
-        description: 'Total hours spent mining: ',
+        description: 'Total hours spent mining to get the payout received',
         default: totalHrs,
         required: true
       }
