@@ -16,7 +16,7 @@ const defaults = {
   wattsConsumption: 30
 };
 
-prompt.message = colors.yellow("Please enter: ");
+prompt.message = colors.yellow("Please enter");
 
 prompt.start();
 prompt.get(getUISchema(), function (err, uiResult) {
