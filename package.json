@@ -30,7 +30,9 @@
     "url": "https://github.com/nottoseethesun/minerbeans/issues"
   },
   "homepage": "https://github.com/nottoseethesun/minerbeans#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^1.12.1"
+  },
   "dependencies": {
     "colors": "^1.2.4",
     "optimist": "^0.6.1",
