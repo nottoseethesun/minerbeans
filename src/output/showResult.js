@@ -1,13 +1,11 @@
 const colors = require("colors/safe");
 
 function showResult(operatingProfitLoss, uiResult, totalHrs) {
-    const { nonCryptoCurrency, cryptoName } = uiResult;
-    const iconMsg = getIconMsg(operatingProfitLoss);
-    const msg = `Operating profit/loss for mining ${cryptoName} is ${nonCryptoCurrency} ${operatingProfitLoss} per ${
-      totalHrs
-    } hours.`;
-    console.info(iconMsg + " " + colors.magenta(msg) + " " + iconMsg);
-  }
+  const { nonCryptoCurrency, cryptoName } = uiResult;
+  const iconMsg = getIconMsg(operatingProfitLoss);
+  const msg = `Operating profit/loss for mining ${cryptoName} is ${nonCryptoCurrency} ${operatingProfitLoss} per ${totalHrs} hours.`;
+  console.info(iconMsg + " " + colors.magenta(msg) + " " + iconMsg);
+}
 
 function getIconMsg(operatingProfitLoss) {
   const profitable = operatingProfitLoss > 0;
