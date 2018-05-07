@@ -1,6 +1,6 @@
 {
   "name": "minerbeans",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Command-line tools for crypto mining accounting.",
   "main": "index.js",
   "engines": {
@@ -11,8 +11,8 @@
     "changelog": "node ./node_modules/.bin/changelog git+https://github.com/nottoseethesun/minerbeans.git all --markdown > CHANGELOG.md",
     "profitloss": "node ./src/index.js",
     "test": "npm run lint && ./test.sh",
-    "lint": "node ./node_modules/.bin/eslint --config ./.eslintrc.js ./src/*.js",
-    "prettier": "node ./node_modules/.bin/prettier ./src/*js --write"
+    "lint": "node ./node_modules/.bin/eslint --config ./.eslintrc.js ./src/**/*.js",
+    "prettier": "node ./node_modules/.bin/prettier ./src/**/*js --write"
   },
   "repository": {
     "type": "git",
