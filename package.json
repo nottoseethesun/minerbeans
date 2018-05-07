@@ -1,6 +1,6 @@
 {
   "name": "minerbeans",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Command-line tools for crypto mining accounting.",
   "main": "index.js",
   "engines": {
